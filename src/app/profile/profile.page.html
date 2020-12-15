@@ -1,0 +1,47 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="default"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="default" >Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <div id="container">
+    <div class="brofile_box d-flex">
+      <div class="img_box center_img">
+        <img [src]="picture ||'assets/imgs/no_image.png'" class="crop_img">
+      </div>
+      <div class="text_box">
+        <h2>{{name}}</h2>
+        <div class="bottom_text" >
+          <ion-icon name="camera-outline" color="default"></ion-icon>
+          <p>Change Picture</p>
+        </div>
+      </div>
+    </div>
+    <div class="form">
+      <ion-list lines="none">
+        <ion-item lines="full">
+          <ion-icon name="person-outline" slot="start" color="default"></ion-icon>
+          <ion-label class="ion-text-wrap">{{name}}</ion-label>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-icon name="mail-outline" slot="start" color="default"></ion-icon>
+          <ion-label class="ion-text-wrap">{{email}}</ion-label>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-icon name="phone-portrait-outline" slot="start" color="default"></ion-icon>
+          <ion-label class="ion-text-wrap">{{tel}}</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="pin-outline" slot="start" color="default"></ion-icon>
+          <ion-label class="ion-text-wrap">{{address}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+</ion-content>

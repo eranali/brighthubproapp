@@ -1,0 +1,50 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-content>
+  <div id="container">
+    <div class="banner">
+      <img src="assets/imgs/brighthublogo.png">
+    </div>
+
+    <div class="form">
+      <h2 text-center>Sign in with Email Address</h2>
+      <form (ngSubmit)="doLogin()" [formGroup]="dologin">
+        <ion-list no-lines>
+          <ion-item lines="none">
+            <ion-input class="ninput" type="email" formControlName="email" placeholder="Email Address"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationmessages.email">
+              <div class="error-message"
+                *ngIf="dologin.get('email').hasError(validation.type) && (dologin.get('email').dirty || dologin.get('email').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-item lines="none">
+            <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+            <h3 item-end (click)="openResetPassword()">Forgot ?</h3>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationmessages.password">
+              <div class="error-message"
+                *ngIf="dologin.get('password').hasError(validation.type) && (dologin.get('password').dirty || dologin.get('password').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        </ion-list>
+        <ion-button type="submit" expand="block" color="default" class="ion-activatable ripple-parent" [disabled]="!dologin.valid">
+          Sign In
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-button>
+
+      </form>
+    </div>
+  </div>
+</ion-content>

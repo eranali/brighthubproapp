@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="default"></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="default">
+     Boosters
+    </ion-title>
+    <ion-buttons slot="end" (click)="buy()" >
+      <ion-button size="small" color="vibrant">
+       Buy
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+    <div id="container">
+      <ion-spinner style="width:100%; margin:auto;" name="crescent" color="primary" *ngIf="hideMe == true"></ion-spinner>
+      <p class="text-center" *ngIf="message" text-center>{{message}}</p>
+      <p>Showing all purchased Booster packages</p>
+     <!-- posts loader-->
+    <ion-list lines="none" *ngIf="data">
+      <ion-item lines="none" class="posts" *ngFor="let d of data |  slice:0:slice; let i=index">
+        <ion-icon slot="start" name="bulb-outline" color="vibrant"></ion-icon>
+        <ion-label class="ion-text-wrap">
+          <ion-text>
+            <p>{{d.plan}}</p>
+            <ion-badge color="success" *ngIf="d.status == '1'">Approved</ion-badge>
+            <ion-badge color="warning" *ngIf="d.status == '2'">Pending</ion-badge>
+          </ion-text>
+
+        </ion-label>
+        <ion-badge color="dark" slot="end" *ngIf="d.currency === 'gbp'">£{{d.amount}}</ion-badge>
+        <ion-badge color="dark" slot="end" *ngIf="d.currency === 'lakh'">&#2547; {{d.amount}}</ion-badge>
+      </ion-item>
+    </ion-list>
+
+    <!-- skeleton preloader-->
+    <ion-list lines="none" *ngIf="!data">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap">
+          <ion-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- load more-->
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+ 
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "brightapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,65 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="default"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="default" >Withdraw</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  color="light">
+  <div id="container">
+    <form (ngSubmit)="doAdd()" [formGroup]="doadd">
+      <ion-item lines="none">
+        <ion-label stacked>Amount</ion-label>
+        <ion-input  type="number" formControlName="amount" placeholder="0.00"></ion-input>
+      </ion-item>
+      <ion-button type="submit" color="dark" expand="block" class="ion-activatable ripple-parent" [disabled]="!doadd.valid" >
+        Withdraw
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+      
+      <h2 class="d-flex">My Withdrawals</h2>
+      <ion-spinner style="width:100%; margin:auto;" name="bubbles" *ngIf="hideMe"></ion-spinner>
+      <p class="text-center" *ngIf="message" text-center>{{message}}</p>
+
+    </form>
+    <ion-list lines="none" *ngIf="data">
+      <ion-item  class="posts" lines="none" *ngFor="let d of data">
+        <h2 class="d-flex">You requested for withdraw of {{d.amount | currency:"GBP"}}
+        </h2>
+        <ion-row>
+          <ion-col col-6>
+            <h4>Paid on</h4>
+            <h3 *ngIf="d.status == '1' ">{{ setDate(d.created_at) | date: 'dd/MM/yyyy @ HH:mm'}}</h3>
+          </ion-col>
+          <ion-col col-6>
+            <ion-badge item-end *ngIf="d.status == '1' " color="secondary" class="end">Paid</ion-badge>
+            <ion-badge item-end *ngIf="d.status == '0' " color="danger" class="end">Pending</ion-badge>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+
+     <!-- skeleton preloader-->
+     <ion-list lines="none" *ngIf="!data">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap">
+          <ion-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <ion-badge color="default" slot="end"></ion-badge>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- load more-->
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

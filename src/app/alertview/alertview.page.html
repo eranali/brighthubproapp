@@ -1,0 +1,20 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title color="default" >View</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" size="small" color="default">
+        Close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <div id="container">
+    <div class="img" *ngIf="image  != ''"><ion-img [src]="image"></ion-img></div>
+    <h2>{{title}}</h2>
+    <p class="content-text" [innerHTML]="message"></p>
+  </div>
+
+</ion-content>

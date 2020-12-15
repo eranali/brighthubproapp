@@ -1,0 +1,49 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="default"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="default" >Get Help</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+    <div id="container">
+      <div class="contact d-flex">
+        <div>
+          <h3>Email Us</h3>
+          <h2>info@brighthubpro.com</h2>
+        </div>
+        <ion-icon name="mail-outline" slot="end" text-end ></ion-icon>
+      </div> 
+
+      <div class="form">
+        <h2>Send us a message</h2>
+        
+        <ion-list lines="none">
+          <ion-item lines="full">
+            <ion-label color="default" position="stacked">Full Name</ion-label>
+            <!--<ion-icon name="person-outline" slot="start" text-center></ion-icon>-->
+            <ion-input type="name" [(ngModel)]="name" placeholder="Enter full Name"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label color="default" position="stacked">Email</ion-label>
+            <!--<ion-icon name="mail-outline" slot="start" text-center></ion-icon>-->
+            <ion-input type="email" [(ngModel)]="email" placeholder="Enter Email Address"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label color="default" position="stacked">Message</ion-label>
+            <!--<ion-icon name="pencil-outline" slot="start" text-center></ion-icon>-->
+            <ion-textarea type="text" rows="3" [(ngModel)]="message" placeholder="Enter your Message"></ion-textarea>
+          </ion-item>
+        </ion-list>
+    
+      </div>
+
+    </div>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+	<ion-button expand="full" no-margin color="default" class="ion-activatable ripple-parent" (click)="sendMessage()">Submit  <ion-ripple-effect></ion-ripple-effect></ion-button>
+</ion-footer>

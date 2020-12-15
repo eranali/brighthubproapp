@@ -1,0 +1,19 @@
+<ion-header class="ion-no-border" color="danger">
+  <ion-toolbar color="danger">
+    <ion-title color="light">New Version</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  
+  <div id="container">
+    <img src="../../assets/imgs/update.png">
+    <p>New version is available</p>
+    <div class="ion-activatable ripple-parent">
+      <ion-button color="danger" expand="block" (click)="update()">
+        Update App
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

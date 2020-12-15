@@ -1,0 +1,84 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title color="default">
+      Wallet
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <!--<ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar>
+      <ion-title  color="default">Wallet</ion-title>
+    </ion-toolbar>
+  </ion-header>-->
+
+  <div id="container">
+    <ion-row>
+      <p>Withdraw button will appear if your current earnings is equal to/above £100.00.</p>
+      <ion-col col-6 text-center>
+        <ion-card>
+          <ion-card-content>
+            <!--<ion-icon class="zmdi zmdi-balance-wallet" text-center></ion-icon>-->
+            <h2 class="currency">{{currentEarning | currency:"GBP"}}</h2>
+            <p class="subcurrency">Earnings</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <ion-card>
+          <ion-card-content>
+            <!--<ion-icon class="zmdi zmdi-balance-wallet" text-center></ion-icon>-->
+            <h2 class="currency">{{totalPayout | currency:"GBP"}}</h2>
+            <p class="subcurrency">Payout</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-spinner style="width:100%; margin:auto;" name="crescent" color="primary" *ngIf="hideMe == true"></ion-spinner>
+    <p class="text-center error" *ngIf="message" text-center>{{message}}</p>
+    <h2 class="d-flex">My Earnings<span class="end">
+        <ion-button class="ion-activatable ripple-parent" size="small" color="dark" (click)="gotoWithdraw();" *ngIf="currentEarning >= 0">Withdraw
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-button>
+      </span></h2>
+    <!-- posts loader-->
+    <ion-list lines="none" *ngIf="data">
+      <ion-item lines="none" class="posts" *ngFor="let d of data |  slice:0:slice; let i=index">
+        <ion-icon slot="start" name="cash-outline" color="default"></ion-icon>
+        <ion-label class="ion-text-wrap">
+          <ion-text>
+            <p>You received a payment <span class="amount">{{d.amount | currency}}</span></p>
+            <p>{{ setDate(d.updated_at) | date: 'dd/MM/yyyy @ HH:mm'}}</p>
+          </ion-text>
+
+        </ion-label>
+        <ion-badge item-end *ngIf="d.source != '' " color="primary" class="end">{{d.source}}</ion-badge>
+        <!--<ion-badge color="dark" slot="end" *ngIf="d.currency === 'gbp'">£{{d.amount}}</ion-badge>
+        <ion-badge color="dark" slot="end" *ngIf="d.currency === 'lakh'">&#2547; {{d.amount}}</ion-badge>-->
+      </ion-item>
+    </ion-list>
+
+    <!-- skeleton preloader-->
+    <ion-list lines="none" *ngIf="!data">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap">
+          <ion-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <ion-badge color="default" slot="end"></ion-badge>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- load more-->
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>

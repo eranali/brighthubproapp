@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "517446738698",
+    "firebase_url": "https://brighthubpro-41a4c.firebaseio.com",
+    "project_id": "brighthubpro-41a4c",
+    "storage_bucket": "brighthubpro-41a4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517446738698:android:520d26def0b9ba8fc610f3",
+        "android_client_info": {
+          "package_name": "com.brighthubpro.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517446738698-jeqpjp1blco5sl4d06897u8l3a4rh38g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbcJ1aJkJOWc0OgT7owt9mlc8ZkNW5ZmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517446738698-jeqpjp1blco5sl4d06897u8l3a4rh38g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

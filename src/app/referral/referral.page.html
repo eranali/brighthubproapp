@@ -1,0 +1,123 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title color="default">
+      Referral
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="share();" color="default">
+        <ion-icon  name="share-social-outline" color="default"></ion-icon> Share
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <!--<ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar>
+      <ion-title size="large" color="default">Referral</ion-title>
+    </ion-toolbar>
+  </ion-header>-->
+
+  <div id="container">
+    <p> Compose message to share or share directly via the share button below.</p>
+  <ion-list class="images-list"  lines="none">
+    <ion-radio-group [(ngModel)]="image">
+    <ion-list-header>
+      Tap to Select Promo Images
+    </ion-list-header>
+    <ion-item class="item-img" lines="none">
+      <ion-label>
+        <img src="assets/imgs/1.jpeg" (click)="view('assets/imgs/1.jpeg');">
+      </ion-label>
+      <ion-radio mode="ios" slot="end" color="default" value="assets/imgs/1.jpeg"></ion-radio>
+    </ion-item>
+    <ion-item class="item-img">
+      <ion-label>
+        <img src="assets/imgs/2.jpeg">
+      </ion-label>
+      <ion-radio mode="ios" slot="end" color="default" value="assets/imgs/2.jpeg"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+  </ion-list>
+ 
+  <ion-item class="li-item">
+    <ion-label class="ion-text-wrap" color="default" position="stacked">Compose Message or Use From Template Below</ion-label>
+    <ion-textarea rows="6" cols="20" spellcheck="true"  autoGrow="true" [(ngModel)]="content" value="{{contentt}}"></ion-textarea>
+  </ion-item>
+
+  <ion-card class="card-css">
+    <ion-card-header>
+      <ion-card-subtitle>Template 1</ion-card-subtitle>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{text}}
+    </ion-card-content>
+    <ion-item button color="default" (click)="copyText(text);" detail lines="full" class="ion-activatable ripple-parent">
+      <ion-icon name="copy-outline" color="light" slot="start"></ion-icon>
+      <ion-label>
+       Copy
+      </ion-label>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+  </ion-card>
+  <ion-card class="card-css">
+    <ion-card-header>
+      <ion-card-subtitle>Template 2</ion-card-subtitle>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{text2}}
+    </ion-card-content>
+    <ion-item button color="default" (click)="copyText(text2);" detail lines="full" class="ion-activatable ripple-parent">
+      <ion-icon name="copy-outline" color="light" slot="start"></ion-icon>
+      <ion-label>
+       Copy
+      </ion-label>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+  </ion-card>
+  <ion-card class="card-css">
+    <ion-card-header>
+      <ion-card-subtitle>Template 3</ion-card-subtitle>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{text3}}
+    </ion-card-content>
+    <ion-item button color="default" (click)="copyText(text3);" detail lines="full" class="ion-activatable ripple-parent">
+      <ion-icon name="copy-outline" color="light" slot="start"></ion-icon>
+      <ion-label>
+       Copy
+      </ion-label>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+  </ion-card>
+
+  <!--<ion-item class="li-item">
+    <ion-label class="ion-text-wrap">
+      <ion-text>{{text}}</ion-text>
+    </ion-label>
+    <ion-button color="default" size="small" (click)="copyText(text);">Copy</ion-button>
+  </ion-item>
+  <ion-item class="li-item">
+    <ion-label class="ion-text-wrap">
+      <ion-text>{{text2}}</ion-text>
+    </ion-label>
+    <ion-button color="default" size="small" (click)="copyText(text2);">Copy</ion-button>
+  </ion-item>
+  <ion-item class="li-item">
+    <ion-label class="ion-text-wrap">
+      <ion-text>{{text3}}</ion-text>
+    </ion-label>
+    <ion-button color="default" size="small" (click)="copyText(text3);">Copy</ion-button>
+  </ion-item>
+
+  <!--<ion-button expand="block" class="ion-activatable ripple-parent" color="default" (click)="share();">
+    <ion-icon name="share" slot="start" color="light"></ion-icon> &nbsp; Share
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-button>-->
+  
+  </div>
+
+</ion-content>

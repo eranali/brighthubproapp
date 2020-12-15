@@ -1,0 +1,258 @@
+:host {
+    ion-item {
+        --background: none !important;
+        .item-native {
+            background: none !important;
+            .item-inner {
+                background: none !important;
+            }
+        }
+    }
+    ion-input {
+        background: none !important;
+    }
+    ion-button{
+        height:50px;
+    }
+}
+#container {
+    padding: 10px 10px;
+    margin-top: 20vh;
+    text-align: center;
+}
+
+#container strong {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#container p {
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #8c8c8c;
+
+    margin: 0;
+}
+
+#container a {
+    text-decoration: none;
+}
+
+$primary: #2172ec;
+$bg-color: #f3f5f5;
+$white: #fff;
+$gray: #808080;
+$fb_color: #3a48b1;
+$green_color: #80d138;
+$default-color: #80d138;
+
+.button {
+    &.btn {
+        font-size: 1.55rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        height: 45px;
+        box-shadow: none;
+        background: $default-color;
+        text-transform: none;
+        letter-spacing: 0.5px;
+
+        &:hover:not(.disable-hover) {
+            background: $default-color;
+        }
+
+        .button-inner {
+            //letter-spacing: 2px;
+        }
+
+        &[block] {
+            border-radius: 7px;
+        }
+    }
+}
+
+ion-item {
+    --ion-item-border: none;
+    .item-native {
+        background: none;
+        .item-inner {
+            border: none;
+        }
+    }
+}
+
+.form {
+    display: block;
+    margin: 0 auto;
+
+    .list {
+        background: $white;
+        border-radius: 7px;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .item {
+        padding: 2px 10px 3px 10px;
+        border-radius: 0px;
+        border: none !important;
+        box-shadow: none !important;
+        background: darken($bg-color, 2%);
+        align-items: center;
+        border-radius: 7px;
+        margin-bottom: 8px;
+        .item-native {
+            background: none;
+        }
+        .item-inner {
+            border: none !important;
+            box-shadow: none !important;
+            margin-left: 0 !important;
+            padding: 0;
+
+            .label {
+                font-size: 1.9rem;
+                color: lighten($gray, 0%);
+                text-transform: none;
+                opacity: 1 !important;
+                margin: 0px;
+            }
+
+            ion-textarea,
+            ion-input {
+                font-size: 1.5rem;
+                font-weight: 500;
+                margin-top: 0px;
+                color: darken($gray, 20%);
+                background: none;
+                .text-input {
+                    margin: 0;
+                }
+
+                ::-webkit-input-placeholder {
+                    color: lighten($gray, 10%);
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    letter-spacing: 0;
+                }
+
+                ::-moz-placeholder {
+                    color: lighten($gray, 20%);
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    letter-spacing: 0.5px;
+                }
+
+                :-ms-input-placeholder {
+                    color: lighten($gray, 20%);
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    letter-spacing: 0.5px;
+                }
+
+                :-moz-placeholder {
+                    color: lighten($gray, 20%);
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    letter-spacing: 0.5px;
+                }
+            }
+        }
+
+        &.item-input-has-focus {
+            .label {
+                color: $gray;
+            }
+        }
+
+        img {
+            &[item-start] {
+                margin: 0;
+                width: 20px;
+                margin: 0 15px;
+            }
+        }
+
+        h3 {
+            margin: 0 !important;
+            height: 44px;
+            line-height: 44px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            color: $default-color;
+        }
+    }
+
+    .row {
+        margin: 0 -3.7px;
+
+        .col {
+            padding: 0 3.7px;
+        }
+    }
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 0vh;
+    padding-bottom: 0px;
+
+    img {
+        width: 50%;
+        margin-left: auto;
+
+        display: block;
+        margin-right: auto;
+    }
+
+    h2 {
+        margin: 0;
+        color: darken($default-color, 0%);
+        font-weight: 400;
+        font-size: 1.2rem !important;
+        strong {
+            font-weight: 700;
+            font-size: 2.4rem;
+        }
+    }
+}
+
+.button.btn.fb {
+    background: $fb_color !important;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1rem;
+    margin-top: 23px;
+    color: lighten($gray, 10%);
+    margin-bottom: 32px;
+    margin-top: 27px;
+}
+
+p {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding-top: 27px;
+
+    span {
+        color: $default-color;
+        margin: 0 5px;
+    }
+}
+
+.error-message {
+    font-size: small;
+    color: var(--ion-color-danger);
+    background: none;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

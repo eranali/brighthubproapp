@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="default"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="default">Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div id="container">
+    <ion-spinner style="width:100%; margin:auto;" name="crescent" color="primary" *ngIf="hideMe == true"></ion-spinner>
+    <p class="text-center" *ngIf="message" text-center>{{message}}</p>
+    <!-- posts loader-->
+    <ion-list lines="none" *ngIf="noti">
+      <ion-item lines="none" class="posts" *ngFor="let n of noti |  slice:0:slice; let i=index"
+        (click)="view(n.id,n.title,n.desc,n.image)">
+        <ion-thumbnail slot="start">
+          <ion-icon slot="icon-only" name="notifications" color="vibrant"></ion-icon>
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap">
+          <ion-text>
+            <p [innerHtml]="n.title"></p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- skeleton preloader-->
+    <ion-list lines="none" *ngIf="!noti">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap">
+          <ion-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- load more-->
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

@@ -1,0 +1,94 @@
+<ion-header [translucent]="true"  class="ion-no-border">
+  <ion-toolbar class="new-toolbar-css">
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/alert']">
+        <ion-icon slot="icon-only" name="notifications" color="default"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <!--<ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar class="white-bg">
+      <ion-title >Dashboard</ion-title>
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['/alert']">
+          <ion-icon slot="icon-only" name="notifications" color="default"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>-->
+
+  <div id="container">
+    <div class="menu_items">
+      <ion-row>
+        <ion-col col-6 (click)="gotoWebsite()">
+          <div class="item_box d-flex">
+            <ion-icon name="globe-outline" class="text-theme"></ion-icon>
+            <div class="text">
+              <h2>{{websites}}</h2>
+              <p>Websites </p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-6 (click)="gotoBooster()">
+          <div class="item_box d-flex">
+            <ion-icon name="bulb-outline" class="text-theme"></ion-icon>
+            <div class="text">
+              <h2>{{booster}}</h2>
+              <p>Boosters</p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6 (click)="gotoEarnings()">
+          <div class="item_box d-flex">
+            <ion-icon name="cash-outline" class="text-theme"></ion-icon>
+            <div class="text">
+              <h2>{{rents}}</h2>
+              <p>Rents</p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-6 (click)="gotoReferral()">
+          <div class="item_box d-flex">
+            <ion-icon name="people-outline" class="text-theme"></ion-icon>
+            <div class="text">
+              <h2>{{referrals}}</h2>
+              <p>Referrals</p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-card class="card-css ion-activatable ripple-parent" (click)="buyWebsite()">
+      <ion-card-header>
+        <ion-card-subtitle>Earn & Grow</ion-card-subtitle>
+        <ion-card-title>Buy Websites Packages</ion-card-title>
+      </ion-card-header>
+      <ion-item button color="default" detail lines="full">
+        <ion-icon name="globe-outline" color="light" slot="start"></ion-icon>
+        <ion-label>
+          Buy
+        </ion-label>
+      </ion-item>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+    <ion-card class="card-css ion-activatable ripple-parent" (click)="buyBooster()">
+      <ion-card-header>
+        <ion-card-subtitle>Additional points</ion-card-subtitle>
+        <ion-card-title>Buy Booster Packs</ion-card-title>
+      </ion-card-header>
+      <ion-item button color="default" detail lines="full">
+        <ion-icon name="pricetag-outline" color="light" slot="start"></ion-icon>
+        <ion-label>
+          Buy
+        </ion-label>
+      </ion-item>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+  </div>
+</ion-content>
