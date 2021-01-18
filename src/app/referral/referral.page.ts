@@ -45,7 +45,6 @@ export class ReferralPage implements OnInit {
       let message = this.content ? this.content : '';
       const token = await Storage.get({ key: REF });
       const Link = 'https://app.brighthubpro.co/?ref=' + token.value;
-
       if (message === '') {
         message = 'I would like to invite you to download BrightHub App.\nSign up using my code:' + token.value + '. to join the affiliate marketing community. Get the app\n: ' + Link;
       } else {
